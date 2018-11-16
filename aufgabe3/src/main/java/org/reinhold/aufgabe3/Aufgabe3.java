@@ -8,7 +8,6 @@ import edu.princeton.cs.introcs.StdDraw;
     Aufgabe 3) Verschachtelte Schleifen und Verzweigungen - Optische Täuschung
 */
 public class Aufgabe3 {
-	private static final int DOUBLE_SQUARE_SIZE = 80;
 	private static final int SQUARE_SIZE = 40;
 	static final Color brightGreen = new Color(166, 166, 76);
 	static final Color darkGreen = new Color(90, 90, 0);
