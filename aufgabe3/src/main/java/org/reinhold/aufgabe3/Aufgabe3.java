@@ -40,9 +40,11 @@ public class Aufgabe3 {
 		for (int v = 0; v < height; v++) { // 11 Quadrate hoch, 1 mehr für LAG
 			for (int h = 0; h < width; h++) { // 10 Quadrate breit
 				boolean even = (h * height + v) % 2 == 0;
-				draw1Rect(v, h, even ? brightGreen : darkGreen);
+				int x = h * SQUARE_SIZE;
+				int y = v * SQUARE_SIZE;
+				draw1Rect(x, y, even ? brightGreen : darkGreen);
 				if (v > 0 && h > 0) {
-					drawCross(v, h, v >= 6 ? !even : even);
+					drawCross(x, y, v >= 6 ? !even : even);
 				}
 			}
 		}
@@ -55,13 +57,13 @@ public class Aufgabe3 {
 		drawBar(v, h, secondSize, firstSize, Color.BLACK);
 	}
 
-	private static void drawBar(int v, int h, int firstSize, int secondSize, Color color) {
+	private static void drawBar(int x, int y, int halfWidth, int halfHeight, Color color) {
 		StdDraw.setPenColor(color);
-		StdDraw.filledRectangle(h * SQUARE_SIZE, v * SQUARE_SIZE, firstSize, secondSize);
+		StdDraw.filledRectangle(x, y, halfWidth, halfHeight);
 	}
 
-	private static void draw1Rect(int i, int j, Color color) {
+	private static void draw1Rect(int x, int y, Color color) {
 		StdDraw.setPenColor(color);
-		StdDraw.filledSquare(20 + j * SQUARE_SIZE, 20 + i * SQUARE_SIZE, SQUARE_SIZE / 2);
+		StdDraw.filledSquare(20 + x, 20 + y, SQUARE_SIZE / 2);
 	}
 }
