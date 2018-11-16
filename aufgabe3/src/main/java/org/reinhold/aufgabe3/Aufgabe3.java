@@ -31,20 +31,22 @@ public class Aufgabe3 {
 		// ineinander verschachtelte
 		// for-Schleifen.
 
-		StdDraw.setCanvasSize(400, 440);
-		StdDraw.setXscale(0, 400);
-		StdDraw.setYscale(0, 440);
+		int height = 22;
+		int width = 23;
+		int canvasWidth = width * SQUARE_SIZE;
+		int canvasHeight = height * SQUARE_SIZE;
+		StdDraw.setCanvasSize(canvasWidth, canvasHeight);
+		StdDraw.setXscale(0, canvasWidth);
+		StdDraw.setYscale(0, canvasHeight);
 		// boolean change=true;
-		int height = 11;
-		int width = 10;
 		for (int v = 0; v < height; v++) { // 11 Quadrate hoch, 1 mehr für LAG
 			for (int h = 0; h < width; h++) { // 10 Quadrate breit
-				boolean even = (h * height + v) % 2 == 0;
+				boolean even = (h%2 + v) % 2 == 0;
 				int x = h * SQUARE_SIZE;
 				int y = v * SQUARE_SIZE;
 				draw1Rect(x, y, even ? brightGreen : darkGreen);
 				if (v > 0 && h > 0) {
-					drawCross(x, y, v >= 6 ? !even : even);
+					drawCross(x, y, v >= height/2 ? !even : even);
 				}
 			}
 		}
