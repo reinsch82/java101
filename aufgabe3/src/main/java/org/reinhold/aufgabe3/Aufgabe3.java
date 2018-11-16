@@ -42,7 +42,7 @@ public class Aufgabe3 {
 			for (int h = 0; h < width; h++) { // 10 Quadrate breit
 				boolean even = (h * height + v) % 2 == 0;
 				draw1Rect(v, h, even ? brightGreen : darkGreen);
-				if (v > 0 && h > 0 && h < width) {
+				if (v > 0 && h > 0) {
 					drawCross(v, h, v >= 6 ? !even : even);
 				}
 			}
